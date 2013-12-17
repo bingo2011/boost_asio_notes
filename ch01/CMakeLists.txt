@@ -1,0 +1,6 @@
+project(BoostAsio)
+cmake_minimum_required(VERSION 2.6)
+find_package( Boost 1.53 REQUIRED COMPONENTS filesystem system thread)
+add_executable(simple_sync_server 01-simple_sync_server.cpp)
+link_directories(${Boost_LIBRARY_DIR})
+TARGET_LINK_LIBRARIES(simple_sync_server ${Boost_LIBRARIES})
