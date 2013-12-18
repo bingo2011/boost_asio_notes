@@ -27,7 +27,10 @@ void client_session(socket_ptr sock)
 {
     while (true) {
         char data[512];
-        size_t len = sock->read_some(buffer(data));
+        boost::system::error_code error;
+        size_t len = sock->read_some(buffer(data), error);
+        if (error == error::eof)
+           return;
         if (len > 0)
             write(*sock, buffer("ok", 2));
     } 
