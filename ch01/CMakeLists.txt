@@ -1,5 +1,6 @@
 project(BoostAsio)
 cmake_minimum_required(VERSION 2.6)
+add_definitions(-g)
 find_package( Boost 1.53 REQUIRED COMPONENTS filesystem system thread)
 
 file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
